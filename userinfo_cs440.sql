@@ -8,7 +8,7 @@ CREATE TABLE `user` (
   `password` varchar(50)  DEFAULT NULL,
   `firstName` varchar(30) DEFAULT NULL,
   `lastName` varchar(30) DEFAULT NULL,
-  `email` varchar(60) DEFAULT NULL UNIQUE
+  `email` varchar(50) DEFAULT NULL UNIQUE
 );
 
 INSERT INTO `user` VALUES ('Amanda','admin','Amanda', 'White', 'AmandaWhite@email.com'),
