@@ -1,4 +1,4 @@
-<html>
+<html style= "background:#c0c0c0";>
 	<body>
 	<?php
 		include 'connection.php';
@@ -27,13 +27,13 @@
             <tr>
                 <td>
                 <h2>Log in</h2>
-			<form method = "post" action = "main_page.php">			
+			<form method = "post" action = "main_page.php" >			
 				<label>USERNAME: 
-					<input type="text" name="username">
+					<input type="text" name="username" maxlength="15" pattern="^\S{1,}$" required oninvalid='this.setCustomValidity("Required field | Do not include spaces")' oninput="this.setCustomValidity('')">
 				</label>
                 <br><br>
 				<label>PASSWORD:
-					<input type="password" name="password">
+					<input type="password" name="password" maxlength="50" pattern="^\S{1,}$" required oninvalid='this.setCustomValidity("Required field | Do not include spaces")' oninput="this.setCustomValidity('')">
 				</label>
                 <br><br>
 				<input type="submit" value="LOG IN">
@@ -54,29 +54,29 @@
                 <h2>Sign up</h2>
 			<form method = "post" action = "add_user.php">
 				<label>USERNAME:
-					<input type="text" name="username" required>
+					<input type="text" name="username" maxlength="15" pattern="^\S{1,15}$" required oninvalid='this.setCustomValidity("Required field | Do not include spaces")' oninput="this.setCustomValidity('')">
 				</label>
                 <br><br>
 
 				<label>PASSWORD:
-				<input id="password" name="password" type="password" pattern="^\S{1,}$" onchange="this.setCustomValidity(this.validity.patternMismatch ? 'Passwords must match' : '');
+				<input id="password" name="password" type="password" pattern="^\S{1,}$" maxlength="50" onchange="this.setCustomValidity(this.validity.patternMismatch ? 'Passwords must match | Do not include spaces' : '');
 				if(this.checkValidity()) form.passwordMatching.pattern = this.value;" placeholder="Password" required>
 
-				<input id="passwordMatching" name="passwordMatching" type="password" pattern="^\S{1,}$" onchange="this.setCustomValidity(this.validity.patternMismatch ? 'PASSWORDS DO NOT MATCH' : '');
+				<input id="passwordMatching" name="passwordMatching" type="password" maxlength="50" pattern="^\S{1,}$" onchange="this.setCustomValidity(this.validity.patternMismatch ? 'PASSWORDS DO NOT MATCH | Do not include spaces' : '');
 				" placeholder="Confirm Password" required>
 				</label>
 
                 <br><br>		
 				<label>FIRST NAME:
-					<input type="text" name="firstName">
+					<input type="text" name="firstName" maxlength="30">
 				</label>
                 <br><br>
 				<label>LAST NAME:
-					<input type="text" name="lastName">
+					<input type="text" name="lastName" maxlength="30">
 				</label>
                 <br><br>
 				<label>EMAIL:
-					<input type="email" name="email" required>
+					<input type="email" name="email" maxlength="50" pattern="^\S{1,}$" required oninvalid='this.setCustomValidity("Required field | Do not include spaces")' oninput="this.setCustomValidity('')">
 				</label>
                 <br><br>
 				<input type="submit" value="SUBMIT">

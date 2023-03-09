@@ -1,4 +1,4 @@
-<html>
+<html style= "background:#c0c0c0";>
 	<body>
 		<?php
 			include 'connection.php';
