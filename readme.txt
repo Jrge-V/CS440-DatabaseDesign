@@ -4,7 +4,7 @@ Youtube Link: TBA
 
 Contribution of each member for Part 1:
 
-All contribution was split equally amognst the group members which was established during the first day of the group formation,
+All contribution was split equally amongst the group members which was established during the first day of the group formation,
 
 1. Creating a database with login/registration and prevention of SQL attacks: Lead by Jorge Verduzco, Reviewed by Sam Laconico and Sara Nayerian.
 
