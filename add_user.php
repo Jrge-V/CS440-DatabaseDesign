@@ -16,7 +16,7 @@
 			$userSt->execute();			
 			$userResult = $userSt->get_result();
 
-            //Query conatining all emails in database
+            //Query contining all emails in database
             $emailSQL = "SELECT * FROM user WHERE email = ?";	
 			$emailSt = $link->prepare($emailSQL);			
 			$emailSt->bind_param("s", $email);	

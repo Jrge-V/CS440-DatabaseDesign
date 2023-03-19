@@ -11,6 +11,9 @@ CREATE TABLE `user` (
   `email` varchar(50) DEFAULT NULL UNIQUE
 );
 
-INSERT INTO `user` VALUES ('Amanda','admin','Amanda', 'White', 'AmandaWhite@email.com'),
-('Gary','admin','Gary', 'Blue', 'GaryBlue@email.com'),
-('Joe','admin','Joe', 'Red', 'JoeRed@email.com');
+INSERT INTO `user` VALUES
+('Amanda','amanda70','Amanda', 'White', 'AmandaWhite@email.com'),
+('Gary','gary80','Gary', 'Blue', 'GaryBlue@email.com'),
+('Neil','neil90','Neil', 'Green', 'NeilGreen@email.com'),
+('Rick','rick00','Rick', 'Black', 'RickBlack@email.com'),
+('Joe','joe10','Joe', 'Red', 'JoeRed@email.com');
