@@ -6,16 +6,20 @@ $username = 'root';
 $password = '';
 $dbname = "userinfo_cs440";
 
-// Create connection
-$link = mysqli_connect($servername, $username, $password, $dbname) or die("unable to connect");
+try {
+    // Create connection
+    $link = mysqli_connect($servername, $username, $password, $dbname);
 
-//error handling
-if(mysqli_connect_error()){
-    die("Databse connection error: " . mysqli_connect_error());
-}
-//if success, show connection 
-else{
+    // Check connection
+    if (mysqli_connect_errno()) {
+        throw new Exception("Failed to connect to database: " . mysqli_connect_error());
+    }
+
+    //if success, show connection 
     echo "Connected Successfully";
+} catch (Exception $e) {
+    // Handle exception (e.g. display error message, log error, etc.)
+    echo "Error: " . $e->getMessage();
 }
 
 ?>

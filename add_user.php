@@ -1,4 +1,4 @@
-<html style= "background:#c0c0c0";>
+<html style= "background-color: #EDF2F7;";>
 	<body>
 		<?php
 			include 'connection.php';
@@ -67,7 +67,7 @@
                     ">
                         <tr>
                             <td>
-					<h1> Succefully Registered as <?php echo $username; ?>! </h1>
+					<h1> Succesfully Registered as <?php echo $username; ?>! </h1>
 					<form method="post" action="login_signup.php">
 						<p><input type="submit" value="Return"></p>
 					</form>
