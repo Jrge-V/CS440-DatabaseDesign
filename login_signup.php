@@ -1,4 +1,4 @@
-<html style="background-color: #EDF2F7;" ;>
+<html style="background-color: #EDF2F7;">
 
 <body>
 	<?php

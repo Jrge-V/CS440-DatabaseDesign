@@ -40,7 +40,7 @@
 				<td>
 
 					<br>
-					<h1 style="text-decoration: underline;"> Welcome back <?php echo "" . $username; ?> </h1>
+					<h1 style="text-decoration: underline;"> Welcome back <?php echo "" . $username; ?>! </h1>
 					<!--return button-->
 					<div style="margin-top: 2rem; text-align: center;">
 						<form method="post" action="login_signup.php" style="display: inline-block;">
