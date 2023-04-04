@@ -96,7 +96,7 @@
 	} else {
 		$username = $password = $firstName = $lastName = $email = "";
 		if (
-			isset($_REQUEST["username"]) && $_REQUESt["username"] != ""
+			isset($_REQUEST["username"]) && $_REQUEST["username"] != ""
 			&& isset($_REQUEST["password"]) && $_REQUEST["password"] != ""
 			&& isset($_REQUEST["firstName"]) && $_REQUEST["firstName"] != ""
 			&& isset($_REQUEST["lastName"]) && $_REQUEST["lastName"] != ""
