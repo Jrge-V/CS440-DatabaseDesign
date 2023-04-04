@@ -1,27 +1,29 @@
 <?php
-    include 'connection.php';
+include 'connection.php';
 
-    
-    // check if session has already been started
-    if (session_status() == PHP_SESSION_NONE) {
-      session_start();
-  }
 
-  // access the previous session when user logged in!
-  $username = $_SESSION["username"];
+// check if session has already been started
+if (session_status() == PHP_SESSION_NONE) {
+    session_start();
+}
+
+// access the previous session when user logged in!
+$username = $_SESSION["username"];
 ?>
 <div>
-  <h1>
-  Logged in as <?php echo $username; ?>
-  </h1>
+    <h1>
+        Logged in as <?php echo $username; ?>
+    </h1>
 </div>
 
 
 <!DOCTYPE html>
 <html style="background-color: #EDF2F7;">
+
 <head>
     <title>Insert Item</title>
 </head>
+
 <body>
     <h2>Insert Item</h2>
     <form method="post" action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]); ?>">
@@ -39,6 +41,14 @@
 
         <input type="submit" value="Submit">
     </form>
+
+    <h2>Search Items by Category</h2>
+    <form method="get" action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]); ?>">
+        <label for="category">Category:</label>
+        <input type="text" id="category" name="category" required><br><br>
+        <input type="submit" value="Search">
+    </form>
+
 
     <?php
 
@@ -72,9 +82,34 @@
         }
     }
 
+    ?>
+
+    <?php
+    if ($_SERVER['REQUEST_METHOD'] === 'GET' && isset($_GET['category'])) {
+        $category = $link->real_escape_string($_GET['category']);
+        $query = "SELECT * FROM items WHERE category LIKE '%$category%' ORDER BY post_date DESC";
+        $result = $link->query($query);
+
+        if ($result->num_rows > 0) {
+            echo "<h2>Search Results for \"$category\"</h2>";
+            echo "<table>";
+            echo "<tr><th>Title</th><th>Description</th><th>Category</th><th>Price</th><th>By User:</th></tr>";
+            while ($row = $result->fetch_assoc()) {
+                echo "<tr><td>" . $row["title"] . "</td><td>" . $row["description"] . "</td><td>" . $row["category"] . "</td><td>" . $row["price"] . "</td><td>" . $row["username"] . "</td></tr>";
+            }
+            echo "</table>";
+        } else {
+            echo "<p>No items found for \"$category\"</p>";
+        }
+    }
+
+
     // close database connection
     $link->close();
     ?>
 
+
+
 </body>
+
 </html>
