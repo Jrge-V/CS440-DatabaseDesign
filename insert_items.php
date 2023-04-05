@@ -9,7 +9,10 @@ if (session_status() == PHP_SESSION_NONE) {
 
 // access the previous session when user logged in!
 $username = $_SESSION["username"];
+
 ?>
+
+
 <div>
     <h1>
         Logged in as <?php echo $username; ?>
@@ -26,60 +29,82 @@ $username = $_SESSION["username"];
 
 <body>
     <!-- insert form -->
-    <h2>Insert Item</h2>
-    <form method="post" action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]); ?>">
+    <h2 style="text-align: center; text-decoration: underline;">Insert Item</h2>
+
+    <form style="
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    border: 5px solid black;
+    margin: 0 auto;
+    max-width: 600px;
+    padding: 20px;
+    " method="post" action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]); ?>">
         <label for="title">Title:</label>
-        <input type="text" id="title" name="title" required><br><br>
+        <input type="text" id="title" name="title" style="font-size: 18px;" required><br><br>
 
         <label for="description">Description:</label>
-        <textarea id="description" name="description" required></textarea><br><br>
+        <textarea id="description" name="description" style="font-size: 18px;" required></textarea><br><br>
 
         <label for="category">Category:</label>
-        <input type="text" id="category" name="category" required><br><br>
+        <input type="text" id="category" name="category" style="font-size: 18px;" required><br><br>
 
         <label for="price">Price:</label>
-        <input type="number" id="price" name="price" step=".01" required><br><br>
+        <input type="number" id="price" name="price" step=".01" style="font-size: 18px;" required><br><br>
 
         <input type="submit" value="Submit">
     </form>
 
-    <!-- search form -->
-    <h2>Search Items by Category</h2>
-    <form method="get" action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]); ?>">
-        <label for="category">Category:</label>
-        <input type="text" id="category" name="category" required><br><br>
-        <input type="submit" value="Search">
-    </form>
 
-    <!-- form for submitting a review -->
-    <h2>Submit a Review</h2>
-    <form method="post" action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]); ?>">
-        <label for="rating">Rating:</label>
-        <select id="rating" name="rating">
-            <option value="excellent">Excellent</option>
-            <option value="good">Good</option>
-            <option value="fair">Fair</option>
-            <option value="poor">Poor</option>
-        </select><br><br>
+    <div style=" display: flex;
+    flex-direction: column;
+    align-items: center;
+    border: 5px solid black;
+    margin: 0 auto;
+    max-width: 600px;
+    padding: 20px; ">
 
-        <label for="review">Review:</label>
-        <textarea id="review" name="review" required></textarea><br><br>
+        <!-- search form -->
+        <h2 style="text-decoration: underline;">Search Items by Category</h2>
 
-        <label for="item_id">Item ID:</label>
-        <input type="number" id="item_id" name="item_id" required><br><br>
+        <form method="get" action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]); ?>">
+            <label for="category" style="font-size: 1.2em;">Category:</label>
+            <input type="text" id="category" name="category" required style="font-size: 1.2em;"><br><br>
+            <input type="submit" value="Search" style="font-size: 1.2em;">
+        </form>
 
-        <input type="submit" value="Submit Review">
-    </form>
+        <!-- form for submitting a review -->
+        <h2 style="text-decoration: underline;">Submit a Review</h2>
+        <form method="post" action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]); ?>">
+            <label for="rating" style="font-size: 1.2em;">Rating:</label>
+            <select id="rating" name="rating" style="font-size: 1.2em;">
+                <option value="excellent">Excellent</option>
+                <option value="good">Good</option>
+                <option value="fair">Fair</option>
+                <option value="poor">Poor</option>
+            </select><br><br>
+
+            <label for="review" style="font-size: 1.2em;">Review:</label>
+            <textarea id="review" name="review" required style="font-size: 1.2em;"></textarea><br><br>
+
+            <label for="item_id" style="font-size: 1.2em;">Item ID:</label>
+            <input type="number" id="item_id" name="item_id" required style="font-size: 1.2em;"><br><br>
+
+            <input type="submit" value="Submit Review" style="font-size: 1.2em;">
+        </form>
+
+    </div>
 
 
-    <!-- logic to submit a post  -->
+
+    <!-- logic to insert an item  -->
     <?php
     if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['title']) && isset($_POST['description']) && isset($_POST['category']) && isset($_POST['price'])) {
         // check for 3 posts per day
         $result = $link->query("SELECT COUNT(*) FROM items WHERE username='$username' AND DATE(post_date) = CURDATE()");
         $count = $result->fetch_row()[0];
         if ($count >= 3) {
-            echo "<p>You have already posted 3 items today. Please try again tomorrow.</p>";
+            echo "<p>Max items posted per day (3).</p>";
         } else {
             // gather the values in the insert item form
             $title = $_POST['title'];
@@ -117,28 +142,31 @@ $username = $_SESSION["username"];
         $result = $link->query($query);
         //display category if found
         if ($result->num_rows > 0) {
-            echo "<h2>Search Results for \"$category\"</h2>";
-            echo "<table>";
-            echo "<tr><th>Item ID</th><th>Title</th><th>Description</th><th>Category</th><th>Price</th><th>By User:</th></tr>";
+            echo "<h2 style='text-align: center;'>Search Results for \"$category\"</h2>";
+            echo "<div style='margin: 0 auto; max-width: 800px;'>";
+            echo "<table style='border-collapse: collapse; width: 100%;'>";
+            echo "<tr style='background-color: #ddd;'><th style='padding: 10px; border: 1px solid #000;'>Item ID</th><th style='padding: 10px; border: 1px solid #000;'>Title</th><th style='padding: 10px; border: 1px solid #000;'>Description</th><th style='padding: 10px; border: 1px solid #000;'>Category</th><th style='padding: 10px; border: 1px solid #000;'>Price</th><th style='padding: 10px; border: 1px solid #000;'>By User:</th></tr>";
             while ($row = $result->fetch_assoc()) {
-                echo "<tr><td>" . $row["id"] .  $row["title"] . "</td><td>" . $row["description"] . "</td><td>" . $row["category"] . "</td><td>" . $row["price"] . "</td><td>" . $row["username"] . "</td></tr>";
+                echo "<tr><td style='padding: 10px; border: 1px solid #000;'>" . $row["id"] . "</td><td style='padding: 10px; border: 1px solid #000;'>" . $row["title"] . "</td><td style='padding: 10px; border: 1px solid #000;'>" . $row["description"] . "</td><td style='padding: 10px; border: 1px solid #000;'>" . $row["category"] . "</td><td style='padding: 10px; border: 1px solid #000;'>" . $row["price"] . "</td><td style='padding: 10px; border: 1px solid #000;'>" . $row["username"] . "</td></tr>";
             }
             echo "</table>";
+            echo "</div>";
         } else {
             //else no items found pertaining to that category
-            echo "<p>No items found for \"$category\"</p>";
+            echo "<p style='text-align: center;'>No items found for \"$category\"</p>";
         }
     }
+
     ?>
 
 
-<?php
+    <?php
     // logic to submit a review
     if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['rating']) && isset($_POST['review']) && isset($_POST['item_id'])) {
         $rating = $_POST['rating'];
         $review = $_POST['review'];
         $item_id = $_POST['item_id'];
-    
+
         // sanitize for SQL injections
         $rating = $link->real_escape_string($rating);
         $review = $link->real_escape_string($review);
@@ -147,7 +175,7 @@ $username = $_SESSION["username"];
 
         // get the current datetime in the format 'YYYY-MM-DD HH:MM:SS'
         $post_date = date('Y-m-d H:i:s');
-    
+
         // count the number of reviews submitted by the user in the last 24 hours
         $result = $link->query("SELECT COUNT(*) FROM reviews WHERE username='$username' AND post_date >= DATE_SUB(NOW(), INTERVAL 1 DAY)");
         $count = $result->fetch_row()[0];
@@ -167,11 +195,13 @@ $username = $_SESSION["username"];
     }
 
     include 'reviews.php';
+
+
     // close database connection
     $link->close();
 
-    
-?>
+
+    ?>
 
 
 
@@ -180,3 +210,20 @@ $username = $_SESSION["username"];
 </body>
 
 </html>
+
+<?php
+
+// logout
+if (isset($_POST['logout'])) {
+    session_destroy();
+    header('Location: login_signup.php');
+}
+
+?>
+
+<div style="text-align:center; padding: 20px;">
+    <form method="post">
+        <button style="background-color:red; color:white; font-size:25px; cursor:pointer;
+        " type="submit" name="logout">Logout</button>
+    </form>
+</div>
