@@ -1,13 +1,14 @@
 Team 06: Jorge Verduzco, Sam Laconico, Sara Nayerian
 
-Youtube Link: https://youtu.be/1YF5vIW-hZs
+Youtube Link: TBA
 
-Contribution of each member for Part 1:
+Contribution of each member for Part 2:
 
-All contribution was split equally amongst the group members which was established during the first day of the group formation,
+1. Implement a interface so that a user can insert an item:
+Implemented and tested by Jorge, Sam, and Sara.
 
-1. Creating a database with login/registration and prevention of SQL attacks: Led by Jorge Verduzco, Reviewed by Sam Laconico and Sara Nayerian.
+2. Implement a search interface as a form so that after one type in a category:
+Implemented and tested by Jorge, Sam, and Sara.
 
-2. Sign up of new users with detection on username duplication, email duplication, and password matching: Led by Sam Laconico, Reviewed by Sara Nayerian and Jorge Verduzco.
-
-3. Initialization of the database and or recreation of the database: Led by Sara Nayerian, Reviewed by Jorge Verduzco and Sam Laconico.
+3. Select an item from the above list, and one can write a review:
+Implemented and tested by Jorge, Sam, and Sara.
