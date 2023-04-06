@@ -1,6 +1,6 @@
 Team 06: Jorge Verduzco, Sam Laconico, Sara Nayerian
 
-Youtube Link: TBA
+Youtube Link: https://youtu.be/iLcnJ9BYC28
 
 Contribution of each member for Part 2:
 
