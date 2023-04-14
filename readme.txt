@@ -1,8 +1,8 @@
 Team 06: Jorge Verduzco, Sam Laconico, Sara Nayerian
 
-Youtube Link: https://youtu.be/iLcnJ9BYC28
+Youtube Link: TBA
 
-Contribution of each member for Part 2:
+Contribution of each member for Part 3:
 
 1. Implement a interface so that a user can insert an item:
 Implemented and tested by Jorge, Sam, and Sara.
