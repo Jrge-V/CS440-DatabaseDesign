@@ -4,5 +4,5 @@ CREATE TABLE reviews (
     username VARCHAR(255) NOT NULL,
     rating ENUM('excellent', 'good', 'fair', 'poor') NOT NULL,
     review TEXT NOT NULL,
-    post_date TIMESTAMP DEFAULT CURRENT_TIMESTAMP
+    post_date DATE DEFAULT CURRENT_DATE
 );
