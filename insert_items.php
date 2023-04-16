@@ -170,6 +170,12 @@ $username = $_SESSION["username"];
         }
     }
 
+    // logout
+if (isset($_POST['logout'])) {
+    session_destroy();
+    header('Location: login_signup.php');
+}
+
 
     include 'reviews.php';
 
@@ -177,22 +183,9 @@ $username = $_SESSION["username"];
 
     // close database connection
     $link->close();
-
-
     ?>
 </body>
-
 </html>
-
-<?php
-
-// logout
-if (isset($_POST['logout'])) {
-    session_destroy();
-    header('Location: login_signup.php');
-}
-
-?>
 
 <div style="text-align:center; padding: 20px;">
     <form method="post">
