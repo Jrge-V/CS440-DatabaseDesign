@@ -150,7 +150,7 @@ $username = $_SESSION["username"];
         $username = $link->real_escape_string($username);
 
         // get the current datetime in the format 'YYYY-MM-DD HH:MM:SS'
-        $post_date = date('Y-m-d H:i:s');
+        $post_date = date('Y-m-d');
 
         // count the number of reviews submitted by the user in the last 24 hours
         $result = $link->query("SELECT COUNT(*) FROM reviews WHERE username='$username' AND post_date >= DATE_SUB(NOW(), INTERVAL 1 DAY)");
@@ -170,6 +170,7 @@ $username = $_SESSION["username"];
         }
     }
 
+
     include 'reviews.php';
 
     include 'two_items.php';
@@ -179,11 +180,6 @@ $username = $_SESSION["username"];
 
 
     ?>
-
-
-
-
-
 </body>
 
 </html>

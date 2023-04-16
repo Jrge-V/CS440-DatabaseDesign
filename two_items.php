@@ -1,5 +1,5 @@
 <!-- search form -->
-<h2 style="text-decoration: underline; text-align: center;">Search for users who posted an item on the same day</h2>
+<h2 style="text-decoration: underline; text-align: center;">Search for users who posted an item on the same day with at least 2 items on that date</h2>
 
 <form style="
     display: flex;
@@ -22,12 +22,9 @@
 
 
 <?php
-// check if session has already been started
-if (session_status() == PHP_SESSION_NONE) {
-    session_start();
-}
 
-// retrieve items posted by different users on the same day for both categories
+
+// check if session has already been started
 if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['category1']) && isset($_POST['category2'])) {
     $category1 = $link->real_escape_string($_POST['category1']);
     $category2 = $link->real_escape_string($_POST['category2']);
@@ -35,8 +32,8 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['category1']) && isset
     $query = "SELECT i1.username, i2.username AS username2 FROM items i1
     JOIN items i2 ON DATE(i1.post_date) = DATE(i2.post_date) AND i1.username != i2.username
     WHERE i1.category='$category1' AND i2.category='$category2'
-    AND i1.username IN (SELECT username FROM items WHERE category='$category1')
-    AND i2.username IN (SELECT username FROM items WHERE category='$category2')
+    AND i1.username IN (SELECT username FROM items WHERE category='$category1' AND DATE(post_date) IN (SELECT DATE(post_date) FROM items WHERE username=i1.username GROUP BY DATE(post_date) HAVING COUNT(*)>=2))
+    AND i2.username IN (SELECT username FROM items WHERE category='$category2' AND DATE(post_date) IN (SELECT DATE(post_date) FROM items WHERE username=i2.username GROUP BY DATE(post_date) HAVING COUNT(*)>=2))
     GROUP BY LEAST(i1.username, i2.username), GREATEST(i1.username, i2.username), DATE(i1.post_date)";
 
     $result = $link->query($query);
@@ -55,4 +52,5 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['category1']) && isset
         echo "<p style='text-align: center;'>No items found posted on the same day in Categories $category1 and $category2.</p>";
     }
 }
+
 ?>

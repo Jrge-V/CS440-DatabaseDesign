@@ -5,5 +5,5 @@ CREATE TABLE items (
     category VARCHAR(255) NOT NULL,
     price FLOAT NOT NULL,
     username VARCHAR(255) NOT NULL,
-    post_date TIMESTAMP DEFAULT CURRENT_TIMESTAMP
+    post_date DATE DEFAULT CURRENT_DATE
 );
