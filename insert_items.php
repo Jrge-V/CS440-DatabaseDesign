@@ -172,6 +172,7 @@ $username = $_SESSION["username"];
 
     include 'reviews.php';
 
+    include 'two_items.php';
 
     // close database connection
     $link->close();
