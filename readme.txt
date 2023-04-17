@@ -4,8 +4,10 @@ Youtube Link: TBA
 
 Contribution of each member for Part 3:
 
-#DELETE AFTER!#
+# DELETE AFTER!
+
 ```
+
 Part 3: Deadline: Monday, 5/8, by midnight
 Based on parts 1 & 2, implement the following functionality using your selected programing language
 and SQL with necessary GUI interfaces. Part 3 emphasizes both the interfaces and their integration
@@ -41,4 +43,5 @@ received any poor reviews or have not received any reviews at all.
 
 10. List a user pair (A, B) such that they always gave each other "excellent" reviews for every single
 item they posted.
+
 ```
