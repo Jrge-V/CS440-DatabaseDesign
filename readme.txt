@@ -4,16 +4,8 @@ Youtube Link: TBA
 
 Contribution of each member for Part 3:
 
-1. Implement a interface so that a user can insert an item:
-Implemented and tested by Jorge, Sam, and Sara.
-
-2. Implement a search interface as a form so that one can type in a category:
-Implemented and tested by Jorge, Sam, and Sara.
-
-3. Select an item from the above list, and one can write a review:
-Implemented and tested by Jorge, Sam, and Sara.
-
-
+#DELETE AFTER!#
+```
 Part 3: Deadline: Monday, 5/8, by midnight
 Based on parts 1 & 2, implement the following functionality using your selected programing language
 and SQL with necessary GUI interfaces. Part 3 emphasizes both the interfaces and their integration
@@ -29,7 +21,6 @@ item has a category in the first text field and the other has a category in the 
 these items (in other words, these items must have comments, but these items don't have any
 other kinds of comments, such as "bad" or "fair" comments). User X is arbitrary and will be
 determined by the instructor.
-
 4. List the users who posted the most number of items since 5/1/2020 (inclusive); if there is a tie,
 list all the users who have a tie.
 
@@ -50,3 +41,4 @@ received any poor reviews or have not received any reviews at all.
 
 10. List a user pair (A, B) such that they always gave each other "excellent" reviews for every single
 item they posted.
+```
