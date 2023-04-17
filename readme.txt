@@ -4,20 +4,13 @@ Youtube Link: TBA
 
 Contribution of each member for Part 3:
 
-# DELETE AFTER!
+DELETE AFTER!
 
-```
 
 Part 3: Deadline: Monday, 5/8, by midnight
 Based on parts 1 & 2, implement the following functionality using your selected programing language
 and SQL with necessary GUI interfaces. Part 3 emphasizes both the interfaces and their integration
 with backend database operations. Each item has 6.25 points.
-
-2. List the users who posted at least two items that are posted on the same day, one has a category
-of X, and another has a category of Y. In terms of the user interface, you will implement two
-text fields so that you can input one category into each text field, and the search will return the
-user (or users) who (the same user) posted two different items on the same day, such that one
-item has a category in the first text field and the other has a category in the second text field.
 
 3. List all the items posted by user X, such that all the comments are "Excellent" or "good" for
 these items (in other words, these items must have comments, but these items don't have any
@@ -43,5 +36,3 @@ received any poor reviews or have not received any reviews at all.
 
 10. List a user pair (A, B) such that they always gave each other "excellent" reviews for every single
 item they posted.
-
-```
