@@ -16,6 +16,7 @@ with backend database operations. Each item has 6.25 points.
 these items (in other words, these items must have comments, but these items don't have any
 other kinds of comments, such as "bad" or "fair" comments). User X is arbitrary and will be
 determined by the instructor.
+
 4. List the users who posted the most number of items since 5/1/2020 (inclusive); if there is a tie,
 list all the users who have a tie.
 
