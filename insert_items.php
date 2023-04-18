@@ -181,6 +181,8 @@ if (isset($_POST['logout'])) {
 
     include 'two_items.php';
 
+    include 'excellent_good.php';
+
     // close database connection
     $link->close();
     ?>

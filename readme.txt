@@ -12,11 +12,6 @@ Based on parts 1 & 2, implement the following functionality using your selected 
 and SQL with necessary GUI interfaces. Part 3 emphasizes both the interfaces and their integration
 with backend database operations. Each item has 6.25 points.
 
-3. List all the items posted by user X, such that all the comments are "Excellent" or "good" for
-these items (in other words, these items must have comments, but these items don't have any
-other kinds of comments, such as "bad" or "fair" comments). User X is arbitrary and will be
-determined by the instructor.
-
 4. List the users who posted the most number of items since 5/1/2020 (inclusive); if there is a tie,
 list all the users who have a tie.
 
