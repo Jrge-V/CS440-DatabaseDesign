@@ -183,6 +183,10 @@ if (isset($_POST['logout'])) {
 
     include 'excellent_good.php';
 
+    include 'most_items.php';
+
+    
+
     // close database connection
     $link->close();
     ?>
