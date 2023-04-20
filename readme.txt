@@ -12,8 +12,6 @@ Based on parts 1 & 2, implement the following functionality using your selected 
 and SQL with necessary GUI interfaces. Part 3 emphasizes both the interfaces and their integration
 with backend database operations. Each item has 6.25 points.
 
-3. Might need to revise #3
-
 5. List the other users who are favorited by both users X, and Y. Usernames X and Y will be
 selected from dropdown menus by the instructor. In other words, the user (or users) C are the
 favorite for both X and Y.

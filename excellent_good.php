@@ -1,5 +1,5 @@
 <!-- search form -->
-<h2 style="text-decoration: underline; text-align: center;">List all "Excellent" or "Good" rated items</h2>
+<h2 style="text-decoration: underline; text-align: center;">List all "Excellent" or "Good" reviewed items</h2>
 
 <form style="
     display: flex;
@@ -18,7 +18,6 @@
 
 
 <!--Retreive info-->
-<!-- Items with only "Excellent" and "Good"-->
 <?php
 
 // Check if the form has been submitted
@@ -38,21 +37,40 @@ if (isset($_POST["username"])) {
     }
 
     // Build the query to fetch the items that meet the criteria
+
+    // Items with only "Excellent" and "Good" not "bad" and "fair"
+    // Use gary for excellent and good
+    //use joe for an excellent and a bad
     $sql = "SELECT DISTINCT items.title FROM items
-            INNER JOIN reviews ON items.id = reviews.item_id
-            WHERE items.id IN (" . implode(",", $item_ids) . ")
-            AND reviews.rating IN ('excellent', 'good')
-            AND items.id NOT IN (
-                SELECT item_id FROM reviews
-                WHERE rating IN ('fair', 'poor')
-            )";
+    INNER JOIN reviews ON items.id = reviews.item_id
+    WHERE items.id IN (" . implode(",", $item_ids) . ")
+    AND (
+        reviews.review LIKE '%Excellent%' OR
+        reviews.review LIKE '%Good%'
+    )
+    AND items.id NOT IN (
+        SELECT item_id FROM reviews
+        WHERE review LIKE '%Bad%' OR review LIKE '%Fair%'
+    )";
+
+
+        // Output the results
+    //  Use: neil, items 2(ipad/poor, excellent,good) and 6(google pixel 6/good, exccelent) | gary, items 4(Apple TV/excellent, excellent) and 5(Samsung 23/poor) | rick for no items with good or excellent ratings.
+
+    // $sql = "SELECT DISTINCT items.title FROM items
+    // INNER JOIN reviews ON items.id = reviews.item_id
+    // WHERE items.id IN (" . implode(",", $item_ids) . ")
+    // AND reviews.rating IN ('excellent', 'good')
+    // AND items.id NOT IN (
+    //     SELECT item_id FROM reviews
+    //     WHERE rating IN ('fair', 'poor')
+    // )";
+
+
 
     // Execute the query
     $result = $link->query($sql);
 
-
-    // Output the results
-    //  Use: neil, items 2(ipad/poor, excellent,good) and 6(google pixel 6/good, exccelent) | gary, items 4(Apple TV/excellent, excellent) and 5(Samsung 23/poor) | rick for no items with good or excellent ratings.
 
     if (mysqli_num_rows($result) > 0) {
         echo "<h2 style='text-align: center; text-decoration: underline;'>Items with only excellent or good rating belonging to user " . $item_username . "</h2>";
