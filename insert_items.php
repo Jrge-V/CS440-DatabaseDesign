@@ -185,7 +185,7 @@ if (isset($_POST['logout'])) {
 
     include 'most_items.php';
 
-    // include 'favorited.php';
+    include 'favorited.php';
 
     // close database connection
     $link->close();
