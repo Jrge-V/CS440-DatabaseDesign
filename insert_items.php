@@ -187,6 +187,8 @@ if (isset($_POST['logout'])) {
 
     include 'favorited.php';
 
+    include 'three_excellent.php';
+
     // close database connection
     $link->close();
     ?>
