@@ -195,6 +195,8 @@ if (isset($_POST['logout'])) {
 
     include 'user_no_poor_items.php';
 
+    include 'user_excellent.php';
+
     // close database connection
     $link->close();
     ?>

@@ -16,7 +16,8 @@ INSERT INTO `user` VALUES
 ('Gary','gary80','Gary', 'Blue', 'GaryBlue@email.com'),
 ('Neil','neil90','Neil', 'Green', 'NeilGreen@email.com'),
 ('Rick','rick00','Rick', 'Black', 'RickBlack@email.com'),
-('Joe','joe10','Joe', 'Red', 'JoeRed@email.com');
+('Joe','joe10','Joe', 'Red', 'JoeRed@email.com'),
+('John','john1','John', 'Yellow', 'JohnYellow@email.com');
 
 /*for items */
 DROP TABLE IF EXISTS `items`;
