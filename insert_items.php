@@ -193,6 +193,8 @@ if (isset($_POST['logout'])) {
 
     include 'all_poor_reviews.php';
 
+    include 'user_no_poor_items.php';
+
     // close database connection
     $link->close();
     ?>

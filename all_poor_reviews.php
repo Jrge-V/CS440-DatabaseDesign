@@ -10,7 +10,7 @@
 
 <body>
     <form method="GET" style="text-align:center; padding-top: 25px;">
-        <button type="submit" name="only_poor_re" style="font-size: 1.2em; padding: 20px 55px; cursor: pointer; margin-left: auto; margin-right: auto; border: 5px solid black;">Users wiht only 'poor' reviews</button>
+        <button type="submit" name="only_poor_re" style="font-size: 1.2em; padding: 20px 55px; cursor: pointer; margin-left: auto; margin-right: auto; border: 5px solid black;">Users with only 'poor' reviews</button>
     </form>
     <div id="only_poor">
         <!-- retrieve info -->
