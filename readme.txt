@@ -12,8 +12,6 @@ Based on parts 1 & 2, implement the following functionality using your selected 
 and SQL with necessary GUI interfaces. Part 3 emphasizes both the interfaces and their integration
 with backend database operations. Each item has 6.25 points.
 
-7. Display all the users who never posted a "poor" review.
-
 8. Display all the users who posted some reviews, but each of them is "poor".
 
 9. Display those users such that each item they posted so far never received any "poor" reviews.

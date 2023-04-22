@@ -189,6 +189,8 @@ if (isset($_POST['logout'])) {
 
     include 'three_excellent.php';
 
+    include 'no_poor_review.php';
+
     // close database connection
     $link->close();
     ?>
