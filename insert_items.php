@@ -191,6 +191,8 @@ if (isset($_POST['logout'])) {
 
     include 'no_poor_review.php';
 
+    include 'all_poor_reviews.php';
+
     // close database connection
     $link->close();
     ?>
