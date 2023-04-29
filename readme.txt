@@ -1,6 +1,6 @@
 Team 06: Jorge Verduzco, Sam Laconico, Sara Nayerian
 
-Youtube Link: N/A
+Youtube Link: https://www.youtube.com/watch?v=Gd0-Xz9hw4o
 
 Contribution of each member for Phase 3:
 
